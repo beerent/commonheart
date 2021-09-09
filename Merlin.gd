@@ -31,9 +31,18 @@ func _process(delta):
 		# See the note below about boolean assignment
 		$AnimatedSprite.flip_h = velocity.x < 0
 	elif velocity.y != 0:
-		$AnimatedSprite.animation = "walk"
+		$AnimatedSprite.animation = "vert_walk"
 		#$AnimatedSprite.flip_v = velocity.y > 0
 	else:
 		#$AnimatedSprite.flip_v = false
 		$AnimatedSprite.animation = "stand"
 		
+
+
+
+func _on_Area2D_area_entered(area):
+	speed = 200
+
+
+func _on_Merlin_area_exited(area):
+	speed = 400
