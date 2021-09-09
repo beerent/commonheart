@@ -1,11 +1,10 @@
 extends Area2D
 
 export var speed = 400
-var screen_size
 var acceleration = .25
 
 func _ready():
-	screen_size = get_viewport_rect().size
+	pass
 
 func _process(delta):
 	var velocity = Vector2()  # The player's movement vector.
@@ -22,8 +21,6 @@ func _process(delta):
 		$AnimatedSprite.play()
 	
 	position += velocity * delta
-	position.x = clamp(position.x, 0, screen_size.x)
-	position.y = clamp(position.y, 0, screen_size.y)
 
 	if velocity.x != 0:
 		$AnimatedSprite.animation = "walk"
