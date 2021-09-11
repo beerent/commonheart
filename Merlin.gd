@@ -12,7 +12,6 @@ func _physics_process(delta):
 	var input = get_movement_input(delta)
 	handle_movement(input, delta)
 
-
 func get_movement_input(delta):
 	var input = Vector2.ZERO
 	input.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
@@ -22,7 +21,6 @@ func get_movement_input(delta):
 	return input
 
 func handle_movement(input, delta):
-	
 	if input != Vector2.ZERO:
 		handle_walk_direction(input)
 		handle_positive_walk_velocity(input, delta)
