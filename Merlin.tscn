@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://assets/dude1.png" type="Texture" id=1]
 [ext_resource path="res://assets/dude5.png" type="Texture" id=2]
@@ -20,6 +20,12 @@
 [ext_resource path="res://assets/dude_vertical_walk3.png" type="Texture" id=18]
 [ext_resource path="res://assets/dude_vertical_walk6.png" type="Texture" id=19]
 [ext_resource path="res://assets/dude_vertical_walk5.png" type="Texture" id=20]
+[ext_resource path="res://assets/dude_vertical_walk_up5.png" type="Texture" id=21]
+[ext_resource path="res://assets/dude_vertical_walk_up6.png" type="Texture" id=22]
+[ext_resource path="res://assets/dude_vertical_walk_up4.png" type="Texture" id=23]
+[ext_resource path="res://assets/dude_vertical_walk_up3.png" type="Texture" id=24]
+[ext_resource path="res://assets/dude_vertical_walk_up1.png" type="Texture" id=25]
+[ext_resource path="res://assets/dude_vertical_walk_up2.png" type="Texture" id=26]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -37,6 +43,11 @@ animations = [ {
 "loop": true,
 "name": "walk",
 "speed": 11.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "vert_walk_up",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -49,7 +60,7 @@ script = ExtResource( 9 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0.219143, 0.813965 )
 frames = SubResource( 1 )
-animation = "vert_walk"
+animation = "vert_walk_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.281754, 8.10835 )
