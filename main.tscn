@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://map.tscn" type="PackedScene" id=1]
+[ext_resource path="res://rock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Merlin.tscn" type="PackedScene" id=2]
 
-[node name="main" type="Node2D"]
-
-[node name="Area2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( 138.573, 123.619 )
+[node name="main" type="YSort"]
 
 [node name="Merlin" parent="." instance=ExtResource( 2 )]
-position = Vector2( 819.73, 610.743 )
+position = Vector2( 212.664, 111.093 )
 
-[connection signal="area_entered" from="Area2D" to="Merlin" method="_on_Area2D_area_entered"]
-[connection signal="area_exited" from="Merlin" to="Merlin" method="_on_Merlin_area_exited"]
+[node name="rock" parent="." instance=ExtResource( 1 )]
+position = Vector2( 236.856, 123.304 )
+
+[node name="rock" parent="rock" instance=ExtResource( 1 )]
+position = Vector2( -43.5363, 14.6477 )

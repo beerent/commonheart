@@ -61,25 +61,20 @@ shape = SubResource( 3 )
 
 [node name="tree1" type="Sprite" parent="."]
 position = Vector2( 1698.97, 325.379 )
-scale = Vector2( 5, 5 )
 texture = ExtResource( 2 )
 
 [node name="tree2" type="Sprite" parent="."]
 position = Vector2( 1447.83, 503.339 )
-scale = Vector2( 5, 5 )
 texture = ExtResource( 2 )
 
 [node name="rock1" type="Sprite" parent="."]
 position = Vector2( 2458.57, 226.477 )
-scale = Vector2( 5, 5 )
 texture = ExtResource( 3 )
 
 [node name="rock2" type="Sprite" parent="."]
 position = Vector2( 2325.64, 487.112 )
-scale = Vector2( 5, 5 )
 texture = ExtResource( 3 )
 
 [node name="rock3" type="Sprite" parent="."]
 position = Vector2( 2609.3, 434.776 )
-scale = Vector2( 5, 5 )
 texture = ExtResource( 3 )

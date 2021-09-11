@@ -1,45 +1,31 @@
-extends Area2D
+extends KinematicBody2D
 
-export var speed = 400
-var acceleration = .25
+const ACCELERATION = 500
+const MAX_SPEED = 80	
+const FRICTION = 500
 
-func _ready():
-	pass
+var velocity = Vector2.ZERO
 
-func _process(delta):
-	var velocity = Vector2()  # The player's movement vector.
-	if Input.is_action_pressed("ui_right"):
-		velocity.x += acceleration
-	if Input.is_action_pressed("ui_left"):
-		velocity.x -= acceleration
-	if Input.is_action_pressed("ui_down"):
-		velocity.y += acceleration
-	if Input.is_action_pressed("ui_up"):
-		velocity.y -= acceleration
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
-		$AnimatedSprite.play()
+onready var merlin = $AnimatedSprite
+
+func _physics_process(delta):
+	var input = Vector2.ZERO
+	input.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	input.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	input = input.normalized()
 	
-	position += velocity * delta
-
-	if velocity.x != 0:
-		$AnimatedSprite.animation = "walk"
-		#$AnimatedSprite.flip_v = false
-		# See the note below about boolean assignment
-		$AnimatedSprite.flip_h = velocity.x < 0
-	elif velocity.y != 0:
-		$AnimatedSprite.animation = "vert_walk"
-		#$AnimatedSprite.flip_v = velocity.y > 0
-	else:
-		#$AnimatedSprite.flip_v = false
-		$AnimatedSprite.animation = "stand"
+	if input != Vector2.ZERO:
+		if input.x == 1:
+			merlin.play("walk")
+			merlin.flip_h = false
+		elif input.x == -1:
+			merlin.play("walk")
+			merlin.flip_h = true
 		
+		
+		velocity = velocity.move_toward(input * MAX_SPEED, ACCELERATION * delta)
+	else:
+		merlin.play("stand")
+		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 
-
-
-func _on_Area2D_area_entered(area):
-	speed = 200
-
-
-func _on_Merlin_area_exited(area):
-	speed = 400
+	move_and_collide(velocity * delta)

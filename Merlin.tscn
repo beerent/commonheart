@@ -40,19 +40,17 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 9.72117
-height = 11.9871
+radius = 5.78584
+height = 4.0962
 
-[node name="Merlin" type="Area2D"]
-scale = Vector2( 5, 5 )
+[node name="Merlin" type="KinematicBody2D"]
 script = ExtResource( 9 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0.219143, 0.813965 )
 frames = SubResource( 1 )
 animation = "vert_walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.281754, 8.10835 )
 shape = SubResource( 2 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-current = true
