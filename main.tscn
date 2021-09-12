@@ -11,5 +11,5 @@ position = Vector2( 212.664, 111.093 )
 [node name="rock" parent="." instance=ExtResource( 1 )]
 position = Vector2( 236.856, 123.304 )
 
-[node name="rock" parent="rock" instance=ExtResource( 1 )]
-position = Vector2( -43.5363, 14.6477 )
+[node name="rock2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 193.32, 137.952 )

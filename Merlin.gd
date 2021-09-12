@@ -6,7 +6,9 @@ const FRICTION = 500
 
 var velocity = Vector2.ZERO
 
-onready var merlin = $AnimatedSprite
+onready var merlin = $AnimationPlayer
+onready var merlinAnimationTree = $AnimationTree
+onready var merlinAnlimationState = merlinAnimationTree.get("parameters/playback")
 
 func _physics_process(delta):
 	var input = get_movement_input(delta)
@@ -21,8 +23,10 @@ func get_movement_input(delta):
 	return input
 
 func handle_movement(input, delta):
+	update_blend_position(input)
+	
 	if input != Vector2.ZERO:
-		handle_walk_direction(input)
+		run()
 		handle_positive_walk_velocity(input, delta)
 	else:
 		idle()
@@ -30,16 +34,10 @@ func handle_movement(input, delta):
 
 	move_and_collide(velocity * delta)
 
-func handle_walk_direction(input):
-	if is_walking_right(input):
-		walk_right()
-	elif is_walking_left(input):
-		walk_left()
+func update_blend_position(input):
+	merlinAnimationTree.set("parameters/idle/blend_position", input)
+	merlinAnimationTree.set("parameters/run/blend_position", input)	
 	
-	if is_walking_up(input):
-		walk_up()
-	elif is_walking_down(input):
-		walk_down()
 
 func handle_positive_walk_velocity(input, delta):
 	velocity = velocity.move_toward(input * MAX_SPEED, ACCELERATION * delta)
@@ -59,20 +57,8 @@ func is_walking_up(input):
 func is_walking_down(input):
 	return input.y == 1
 
-func walk_right():
-	merlin.play("walk")
-	merlin.flip_h = false
-
-func walk_left():
-	merlin.play("walk")
-	merlin.flip_h = true
-
-func walk_up():
-	merlin.play("vert_walk_up")
-	merlin.flip_v = false
-
-func walk_down():
-	merlin.play("vert_walk")
-	merlin.flip_v = false
+func run():
+	merlinAnlimationState.travel("run")
+	
 func idle():
-	merlin.play("stand")
+	merlinAnlimationState.travel("idle")
