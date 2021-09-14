@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://rock.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Merlin.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://assets/tiles/dock_middle.png" type="Texture" id=4]
 [ext_resource path="res://assets/tiles/dock_right.png" type="Texture" id=5]
 [ext_resource path="res://assets/tiles/water.png" type="Texture" id=6]
+[ext_resource path="res://tree.tscn" type="PackedScene" id=7]
 
 [sub_resource type="TileSet" id=1]
 0/name = "test_tileset.png 0"
@@ -102,6 +103,12 @@ tile_data = PoolIntArray( -196613, 4, 0, -196612, 4, 0, -196611, 4, 0, -196610, 
 
 [node name="Merlin" parent="YSort" instance=ExtResource( 2 )]
 position = Vector2( 187.061, 91.7604 )
+
+[node name="tree2" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 263.645, 95.75 )
+
+[node name="tree" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 71.4801, 138.971 )
 
 [node name="rock" parent="YSort" instance=ExtResource( 1 )]
 position = Vector2( 236.856, 123.304 )
