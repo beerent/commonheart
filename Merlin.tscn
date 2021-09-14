@@ -284,7 +284,7 @@ script = ExtResource( 9 )
 position = Vector2( 0.219143, 0.813965 )
 frames = SubResource( 1 )
 animation = "walk"
-frame = 1
+frame = 5
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -306,3 +306,6 @@ active = true
 parameters/playback = SubResource( 21 )
 parameters/idle/blend_position = Vector2( 0, 0 )
 parameters/run/blend_position = Vector2( 0, 0 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
