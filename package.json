@@ -13,18 +13,5 @@
   },
   "scripts": {
     "dev": "parcel ./index.html -p 8080"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/digitsensitive/phaser3-typescript.git"
-  },
-  "author": {
-    "name": "digitsensitive",
-    "email": "digit.sensitivee@gmail.com"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/digitsensitive/phaser3-typescript/issues"
-  },
-  "homepage": "https://github.com/digitsensitive/phaser3-typescript#readme"
+  }
 }
